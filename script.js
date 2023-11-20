@@ -1,25 +1,25 @@
-var numeroCorreto = Math.floor(Math.random() * 100) + 1;
-var tentativas = 0;
+var correctNumber = Math.floor(Math.random() * 100) + 1;
+var tries = 0;
 
 function checkGuess() {
 
-  var palpite = document.getElementById("guessInput").value;
+  var choice = document.getElementById("guessInput").value;
 
-  if (isNaN(palpite) || palpite < 1 || palpite > 100) {
+  if (isNaN(choice) || choice < 1 || choice > 100) {
     setMessage("Por favor, insira um número válido entre 1 e 100.");
     return;
   }
 
-  tentativas++;
+  tries++;
 
-  palpite = parseInt(palpite);
+  choice = parseInt(choice);
 
-  if (palpite === numeroCorreto) {
-    setMessage("Parabéns! Você acertou em " + tentativas + " tentativas.", "green");
+  if (choice === correctNumber) {
+    setMessage("Parabéns! Você acertou em " + tries + " tentativas.", "green");
   } else {
     // Dá dicas para o jogador
-    var dica = palpite < numeroCorreto ? "Maior" : "Menor";
-    setMessage("Tente novamente. Dica: O número é " + dica + ".", "red");
+    var hint = choice < correctNumber ? "Maior" : "Menor";
+    setMessage("Tente novamente. Dica: O número é " + hint + ".", "red");
   }
 }
 
